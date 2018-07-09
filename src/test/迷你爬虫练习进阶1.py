@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 import re
 
 #抽取某本书的前100条短评内容并计算评分的平均值。
+# 查看某个网站的爬虫协议/robots.txt：https://www.douban.com/robots.txt
 count=0
 sum=0.0
 while(count<100):
@@ -20,6 +21,7 @@ while(count<100):
     pattern_s=re.compile('<span class="user-stars allstar(.*?) rating"')
     p=re.findall(pattern_s, r.text)
     for star in p:
+#         print int(star)
         sum+=int(star)
     #print sum
     if count==100:

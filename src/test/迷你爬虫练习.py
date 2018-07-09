@@ -1,14 +1,15 @@
 # -*-coding:utf-8-*-
 
 import requests
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup# BeautifulSoup是模块用于接收一个HTML或XML字符串,然后将其进行格式化,之后便可以使用他提供的方法进行快速查找指定元素
 import re
 
 
 #获取豆瓣图书某一页的短评
 r=requests.get('https://book.douban.com/subject/27124852/comments/')
 soup=BeautifulSoup(r.text,'lxml')   #如果lxml报错，则表示没有安装lxml，pip install lxml即可   使用lxml解析
-pattern=soup.find_all('p','comment-content')#获取p标签属性为comment-content的字符集
+pattern=soup.find_all('p','comment-content')#获取p标签class属性为comment-content的字符集
+
 for item in pattern:
     print item.string   #依次打印解析后的图书短评
 

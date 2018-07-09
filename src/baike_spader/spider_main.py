@@ -19,12 +19,15 @@ class SpiderMain(object):
             try:
                 new_url=self.urls.get_new_url()#从url管理器获取一个新的url
                 print 'craw %d:%s'%(count,new_url)
-                html_cont=self.downloader.download(new_url)#启动下载器，将下载的页面保存在html_cont
+                html_cont=self.downloader.download(new_url)#启动下载器，将下载的页面数据保存在html_cont
+                #print html_cont
                 new_urls,new_data=self.parser.parse(new_url,html_cont)#调用解析器解析页面数据，得到新的url列表和新的数据
+#                 print new_urls
                 self.urls.add_new_urls(new_urls)#解析出来新的url添加到url列表
+                print new_data
                 self.outputer.collect_data(new_data)#收集数据
                 
-                if count==1000:
+                if count==100:
                     break
                 
                 count=count+1

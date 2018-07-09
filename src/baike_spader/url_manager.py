@@ -14,10 +14,11 @@ class UrlManager(object):
             self.new_urls.add(url)
           
     def add_new_urls(self,urls):#添加新的url列表
-        if urls in None or len(urls)==0:
+        if len(urls)==0:   #urls in None or 
             return
-        for url in urls:
-            self.add_new_url(url)
+        else:
+            for url in urls:
+                self.add_new_url(url)
         
 
     

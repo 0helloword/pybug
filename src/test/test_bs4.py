@@ -6,10 +6,11 @@ import re
 html_doc="""
 <html><head><title>the dormouse's story</title></head>
 <body>
-<p class="title"><b>the dormouse's story</b></p>
+<p class="title"><b>the dormouse's story中文字符测试</b></p>
 <p class="story">once upon a time there were three little sisters;and their name</p>
 <a href="http://example.com/elsie" class="sister" id="link1">Elsie</a>
 <a href="http://example.com/one" class="sister" id="link1">one</a>
+<a href="http://example.com/elsie" class="sister" id="link1">ls</a>
 
 """
 
